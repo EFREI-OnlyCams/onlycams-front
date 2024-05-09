@@ -17,9 +17,10 @@ const Home : FunctionComponent = () => {
 	const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1, // Nombre d'images visibles à la fois
-        slidesToScroll: 1 // Nombre d'images à faire défiler à la fois
+        slidesToScroll: 1, // Nombre d'images à faire défiler à la fois
+		autoplay: true,
     };
 
 	const products = [
@@ -27,21 +28,22 @@ const Home : FunctionComponent = () => {
             id: 1,
             name: 'Cameras',
             image: './images/products-camera.jpg',
-            description: 'Découvrez notre sélection de caméras professionnelles.',
+            description: "Découvrez notre sélection de caméras professionnelles. " +
+				"Choisissez parmi une gamme variée d'appareils pour capturer vos moments spéciaux.",
             link: '/cameras'
         },
         {
             id: 2,
             name: 'Appareils photos',
             image: './images/products-appareilphoto.jpg',
-            description: 'Explorez nos appareils photo haut de gamme pour des clichés exceptionnels.',
-            link: '/photos'
+            description: 'Explorez nos appareils photo haut de gamme pour des clichés exceptionnels. ' + 
+			'Découvrez les dernières technologies pour des images de qualité supérieure.',
+            link: '/appareil-photo'
         }
-        // Ajoutez d'autres produits ici...
     ];
 
 	return (
-		<div className="Center">
+		<div className='main-content'>
 			<Slider {...settings}>
 				{images.map((image, index) => (
 					<div key={index} className="slider-images">
@@ -52,13 +54,14 @@ const Home : FunctionComponent = () => {
 
 			<div className="products-container">
             {products.map((product) => (
-                <Link to={product.link} className="product-item" key={product.id}>
+				<div><Link to={product.link} className="product-item" key={product.id}>
                     <img src={product.image} alt={product.name} className="product-image" />
                     <h4>{product.name}</h4>
-                    <p>{product.description}</p>
                 </Link>
+				<p>{product.description}</p>
+				</div>
             ))}
-        </div>
+        	</div>
 		</div>
   	);
 }

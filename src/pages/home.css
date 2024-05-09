@@ -1,8 +1,9 @@
 .slider-images {
-	width: 100%; /* Largeur maximale du conteneur */
     height: 500px; /* Hauteur du conteneur (ajustez selon vos besoins) */
     overflow: hidden; /* Masquer le contenu débordant */
     position: relative; /* Position relative pour positionner l'image de manière absolue */
+	padding-left: 5%;
+	padding-right: 5%;
 	
 	img {
 		width: 100%; /* Largeur de l'image (remplira le conteneur horizontalement) */
@@ -16,9 +17,9 @@
     margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-    gap: 20px; /* Espacement entre les éléments */
-	margin-left : 5%;
-	margin-right : 5%;
+    gap: 8%; /* Espacement entre les éléments */
+	margin-left : 8%;
+	margin-right : 8%;
 
 	.product-item {
 		display: flex;
@@ -42,14 +43,12 @@
 			text-align: center; /* Centrage du texte */
 			font-weight: bold; /* Texte en gras */
 		}
-		
-		p {
-			margin-top: 10px; /* Espacement supérieur pour la description du produit */
-			text-align: center; /* Centrage du texte */
-		}
 	}
-	
-	
+	p {
+		margin-top: 0px; /* Espacement supérieur pour la description du produit */
+		text-align: center; /* Centrage du texte */
+		padding: 10px;
+	}
 }
 
 
