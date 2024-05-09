@@ -5,7 +5,7 @@ const PageNotFound: FunctionComponent = () => {
 	
 
   return (
-    <div className="center">
+    <div className="Center">
       <h1>Hey, cette page n'existe pas !</h1> 
       <Link to="/" className="waves-effect waves-teal btn-flat">
         Retourner à l'accueil

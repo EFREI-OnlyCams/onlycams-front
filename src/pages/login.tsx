@@ -33,7 +33,7 @@ const Login: FunctionComponent = () => {
   }
 
   const handleLogin = () => {
-	navigate('/pagenotfound');
+	navigate('/home');
   }
 
   const validateForm = () => {
