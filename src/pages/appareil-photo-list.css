@@ -1,47 +1,70 @@
 .main-content {
-	align-items: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Title styling */
+.main-content .title {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.main-content .title p {
+    color: white;
+}
+
+.main-content .title h1 {
+    color: rgb(52, 51, 51);
+	margin-top: -0.1%;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-bottom: 5%;
+}
+
+/* Card styling */
+.main-content .card {
+    margin-bottom: 20px;
+    margin-top: 50px;
+    background-color: #a3b4c4; /* Light gray background */
+    border: 2px solid #0b335d; /* Blue border */
+    border-radius: 10px; /* Rounded corners */
+}
+
+
+
+.main-content .card-image img {
+    height: 200px;
+    width: 200px; /* Adjust the width to maintain aspect ratio */
+    object-fit: cover;
+}
+
+
+.main-content .card-content {
+    min-height: 120px; /* Minimum height for card content */
+}
+
+.main-content .card-action a,
+.main-content .card-action button {
+    background-color: #0d3867; /* Blue background for links and buttons */
+    color: black; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px 10px; /* Padding */
+    margin-top: 10px; /* Add margin */
+}
+
+.main-content .card-action a:hover,
+.main-content .card-action button:hover {
+    background-color: #023c7a; /* Darker blue on hover */
+}
+
+.intro-text{
+	margin-top : 20px;
 	text-align: center;
-	
-	margin-left: 10%;
-	margin-right: 10%;
-
-	.title {
-		
-		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-		p {
-			font-size: small;
-			color:white;
-		}
-		h1{
-			color : white;
-		
-		}
-	}
-
-	/* AppareilsPhoto.css */
-	.card {
-		margin-bottom: 20px;
-		margin-top : 50px;
-	}
-
-	.card-image img {
-		height: 200px;
-		object-fit: cover;
-	}
-
-	.card-content {
-		min-height: 120px; /* Hauteur minimale pour le contenu de la carte */
-	}
-
-	.card-action {
-		a {
-			background-color: rgb(0, 175, 240);
-		}
-		button {
-			background-color: rgb(0, 175, 240);
-			margin-top: 10px;
-		}
-	}
-
+	color : black;
+	font-weight: bold;
+	font-family: Garamond;
+	background-color: rgba(55, 97, 131, 0.6);
+	padding: 15px; /* Adjust padding as needed */
+    border-radius: 20px; /* Optional: adds rounded corners to the box */
 }

@@ -21,7 +21,7 @@ export default class productService {
 			'appareil-photo-2': {
 				id: 'appareil-photo-2',
 				name: 'Appareil Photo 2',
-				image: 'path/to/image2.jpg',
+				image: '../appareils-photos/canon-2.png',
 				description: 'Description détaillée de l\'appareil photo 2.',
 				price: 499.99, // Exemple de prix
 				category : 'appareil-photo'
@@ -29,7 +29,7 @@ export default class productService {
 			'appareil-photo-3': {
 				id: 'appareil-photo-3',
 				name: 'Appareil Photo 3',
-				image: 'path/to/image3.jpg',
+				image: '../appareils-photos/canon-3.png',
 				description: 'Description détaillée de l\'appareil photo 3.',
 				price: 599.99, // Exemple de prix
 				category : 'appareil-photo'
@@ -37,7 +37,7 @@ export default class productService {
 			'appareil-photo-4': {
 				id: 'appareil-photo-4',
 				name: 'Appareil Photo 4',
-				image: 'path/to/image4.jpg',
+				image: '../appareils-photos/camera-4.png',
 				description: 'Description détaillée de l\'appareil photo 4.',
 				price: 699.99, // Exemple de prix
 				category : 'appareil-photo'
@@ -88,31 +88,31 @@ export default class productService {
 				id: 'canon-new-canonet-28',
 				name: 'Canon New Canonet 28',
 				image: './appareils-photos/canon-new-canonet-28.png',
-				description: 'Description détaillée de l\'appareil photo 1.',
+				description: 'Compact and lightweight film camera with manual focus and aperture-priority automatic exposure.',
 				price: 399.99, // Exemple de prix
 				category : 'appareil-photo'
 			},
 			{
 				id: 'appareil-photo-2',
-				name: 'Appareil Photo 2',
-				image: 'path/to/image2.jpg',
-				description: 'Description détaillée de l\'appareil photo 2.',
+				name: 'Nikon D850',
+				image: './appareils-photos/canon-2.png',
+				description: 'High-resolution DSLR camera with advanced features, including a 45.7-megapixel sensor',
 				price: 499.99, // Exemple de prix
 				category : 'appareil-photo'
 			},
 			{
 				id: 'appareil-photo-3',
-				name: 'Appareil Photo 3',
-				image: 'path/to/image3.jpg',
-				description: 'Description détaillée de l\'appareil photo 3.',
+				name: 'Sony Alpha A7 III',
+				image: './appareils-photos/canon-3.png',
+				description: 'Mirrorless camera with a full-frame sensor, impressive autofocus capabilities, and 4K video recording.',
 				price: 599.99, // Exemple de prix
 				category : 'appareil-photo'
 			},
 			{
 				id: 'appareil-photo-4',
-				name: 'Appareil Photo 4',
-				image: 'path/to/image4.jpg',
-				description: 'Description détaillée de l\'appareil photo 4.',
+				name: 'Instax 2024',
+				image: './appareils-photos/camera-4.png',
+				description: 'Mirrorless camera known for its retro design, excellent image quality, and advanced video features, ',
 				price: 699.99, // Exemple de prix
 				category : 'appareil-photo'
 			},

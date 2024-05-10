@@ -9,9 +9,7 @@ const AppareilPhotoList : FunctionComponent = () => {
         Explorez notre sélection d'appareils photo haut de gamme pour des clichés exceptionnels.
         Découvrez les dernières technologies en matière de photographie pour capturer des images
         nettes et détaillées. Que vous soyez un photographe amateur ou professionnel, nos appareils
-        photo vous permettront de saisir chaque moment avec une qualité exceptionnelle. Des fonctionnalités
-        avancées telles que la stabilisation d'image, la résolution élevée et la connectivité sans fil
-        font de nos appareils photo le choix parfait pour vos besoins photographiques.
+        photo vous permettront de saisir chaque moment avec une qualité exceptionnelle. 
     `;
 
 	const appareilsPhoto = productService.getProductsByCategory("appareil-photo");
@@ -19,8 +17,12 @@ const AppareilPhotoList : FunctionComponent = () => {
 	return (
 		<div className="main-content">
 			<div className="title">
+                <div className = "intro-">
 				<h1>Appareils photos</h1>
+                </div>
+                <div className = "intro-text">
 				<p>{description}</p>
+                </div> 
 			</div>
 
 			<div className="row">
