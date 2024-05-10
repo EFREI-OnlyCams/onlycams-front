@@ -44,7 +44,7 @@ function App() {
             {/* Cameras and Enceintes (Middle links) */}
             <ul id="nav-middle" className="left middle" >
               <li><Link to="/cameras">Cameras</Link></li>
-              <li><Link to="/enceintes">Enceintes</Link></li>
+              <li><Link to="/appareil-photo">Appareils photos</Link></li>
             </ul>
             {/* Logo (Home link) */}
             <ul id="nav-middle" className="left middle">
