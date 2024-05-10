@@ -118,33 +118,33 @@ export default class productService {
 			},
 			{
 				id: './cameras/camera1.png',
-				name: 'Camera 1',
+				name: 'ULTRA X MACHINE',
 				image: './cameras/camera1.png',
-				description: 'Description détaillée de la camera 1.',
+				description: 'A versatile camera ideal for capturing memories on the go. With high-resolution imaging and easy-to-use features',
 				price: 299.99, // Exemple de prix
 				category : 'camera'
 			},
 			{
-				id: 'camera-2',
+				id: 'VIDEO PRO',
 				name: 'Camera 2',
 				image: './cameras/camera2.png',
-				description: 'Description détaillée de la camera 2.',
+				description: 'Elevate your photography game with Camera 2. Packed with advanced features and a sleek design',
 				price: 399.99, // Exemple de prix
 				category : 'camera'
 			},
 			{
-				id: 'camera-3',
+				id: '999 IQ CAMERA',
 				name: 'Camera 3',
 				image: './cameras/camera3.png',
-				description: 'Description détaillée de la camera 3.',
+				description: 'Keep your home or office safe and secure with Camera 3. Featuring advanced motion detection and night vision capabilities',
 				price: 499.99, // Exemple de prix
 				category : 'camera'
 			},
 			{
-				id: 'camera-4',
+				id: 'Camera Best Seller',
 				name: 'Camera 4',
 				image: './cameras/camera4.png',
-				description: 'Description détaillée de la camera 4.',
+				description: 'Experience the ultimate in photographic excellence with Camera 4. From breathtaking landscapes to intimate portraits',
 				price: 599.99, // Exemple de prix
 				category : 'camera'
 			}
