@@ -1,12 +1,11 @@
 .slider-images {
-	margin-top : 50px;
+	margin-top : 40px;
     height: 500px; /* Hauteur du conteneur (ajustez selon vos besoins) */
     overflow: hidden; /* Masquer le contenu débordant */
     position: relative; /* Position relative pour positionner l'image de manière absolue */
 	padding-left: 5%;
 	padding-right: 5%;
-	padding-top: 5%;
-	
+
 	img {
 		width: 100%; /* Largeur de l'image (remplira le conteneur horizontalement) */
     	height: 100%; /* Hauteur de l'image (remplira le conteneur verticalement) */
@@ -55,4 +54,14 @@
 	}
 }
 
+.intro-text{
+	margin-top : 20px;
+	text-align: center;
+	color : black;
+	font-weight: bold;
+	font-family: Garamond;
+	background-color: rgba(55, 97, 131, 0.6);
+	padding: 15px; /* Adjust padding as needed */
+    border-radius: 30px; /* Optional: adds rounded corners to the box */
+}
 
