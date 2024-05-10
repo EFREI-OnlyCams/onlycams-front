@@ -47,6 +47,19 @@ function App() {
 		<Route path="/product/:productId" element={<ProductDetails />} />
 		<Route path="/" element={<Navigate to="/home"/>} />
       </Routes>
+      {/* Footer */}
+      <footer className="site-footer">
+          <div className="footer-content">
+            <p>&copy; 2024 OnlyCams. All rights reserved.</p>
+            <nav>
+              <ul>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/privacy">Privacy Policy</Link></li>
+              </ul>
+            </nav>
+          </div>
+        </footer>
       </div>
     </Router>
   );
