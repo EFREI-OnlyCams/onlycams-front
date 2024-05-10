@@ -61,6 +61,14 @@ function App() {
             </ul>
           </div>
         </nav>
+
+        <footer>
+          <div id="footer" >
+            {/* Footer content here */}
+            <p>This is the footer.</p>
+          </div>
+        </footer>
+
         {/* Define routes */}
         <Routes>
           <Route path="/login" element={<Login/>} />

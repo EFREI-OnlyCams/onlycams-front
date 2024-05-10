@@ -45,8 +45,18 @@ body {
       color : white;
 
     }
-    
   
+  }
+
+}
+
+footer{
+  nav {
+    background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
+    a{
+      color : white;
+
+    }
   }
 }
 
