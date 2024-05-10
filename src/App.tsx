@@ -7,17 +7,38 @@ import ProductDetails from './pages/product-details';
 import CameraList from './pages/camera-list';
 import  PrivateRoute from './PrivateRoute';
 import AccountInformation from './pages/account-information';
+  
+import './css/styles.css'; // Assuming your CSS file path is correct
 
-const App : React.FC = () => {
+function App() {
   return (
     <Router>
       <div>
-      <nav> 
-        <div className="nav-wrapper teal">
-          <Link to="/" className="brand-logo Left">OnlyCams</Link>
-        </div> 
-      </nav>
-      <Routes>
+        <nav>
+          <div id = "navbar" className = "NavBar">
+            {/* Cameras and Enceintes (Middle links) */}
+            <ul id="nav-middle" className="left middle" >
+              <li><Link to="/cameras">Cameras</Link></li>
+              <li><Link to="/appareils-photos">Appareils photos</Link></li>
+            </ul>
+            {/* Logo (Home link) */}
+            <ul id="nav-middle" className="left middle">
+
+            <Link to="/" className="brand-logo center">
+              <img src="/images/LogoOnlyCams.png" alt="Logo" className="logo-img" />
+            </Link>
+            </ul>
+
+            {/* Account link (Right link) */}
+            <ul id="nav-right" className="right">
+              <li><Link to="/login">Account</Link></li>
+              <li><Link to ="/Basket">My Basket</Link></li>
+            </ul>
+          </div>
+        </nav>
+
+        {/* Define routes */}
+        <Routes>
 		<Route path="/login" element={<Login/>} />
 		<Route path="/home" element={<Home/>}/>
 		<Route path="*" element={<PageNotFound/>} />
@@ -29,6 +50,6 @@ const App : React.FC = () => {
       </div>
     </Router>
   );
-};
+}
 
 export default App;

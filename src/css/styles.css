@@ -1,0 +1,63 @@
+/* styles.css */
+.logo-img:focus,
+.logo-img:hover {
+  outline: none !important; /* Remove the outline on hover or focus */
+}
+
+.logo-img {
+  height: auto; /* Allow the browser to determine the height while maintaining aspect ratio */
+  max-width: 100%; /* Ensure the logo fills its container width */
+  display: block; /* Ensure the logo behaves as a block element */
+  margin: auto; /* Center the logo horizontally */
+  overflow-clip-margin: initial;
+  overflow: initial;
+}
+
+
+#nav-middle{
+  a {
+    color : black;
+    font-weight: bold;
+  }
+  li{
+    text-align: center;
+  }
+  
+
+}
+
+#nav-right{
+  a {
+    color : black;
+    font-weight: bold;
+  }
+}
+
+body {
+  /*background-color: #d0af84 /* Set the background color to a light gray */
+  background-image: url('../../public/images/BackgroundMountain.jpg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+  background-size: cover; /* Adjusts the background image size to cover the entire container */
+  background-repeat: no-repeat;
+
+  nav {
+    background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
+    a{
+      color : white;
+
+    }
+  
+  }
+
+}
+
+footer{
+  nav {
+    background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
+    a{
+      color : white;
+
+    }
+  }
+}
+
+
