@@ -16,6 +16,9 @@
     padding: 20px;
     border: 2px solid #03468e; /* Blue border */
     border-radius: 10px; /* Rounded corners */
+	max-width: 600px; 
+	margin: auto;
+	margin-bottom: 10%;
 }
 
 .product-info h2 {
