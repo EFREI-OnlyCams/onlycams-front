@@ -10,11 +10,11 @@ export default class productService {
 
 		// Simuler les données des produits
 		const products: Record<string, Product> = {
-			'appareil-photo-1': {
-				id: 'appareil-photo-1',
-				name: 'Appareil Photo 1',
-				image: 'path/to/image1.jpg',
-				description: 'Description détaillée de l\'appareil photo 1.',
+			'canon-new-canonet-28': {
+				id: 'canon-new-canonet-28',
+				name: 'Canon New Canonet 28',
+				image: '../appareils-photos/canon-new-canonet-28.png',
+				description: 'Description détaillée du l\'appareil photo 1.',
 				price: 399.99, // Exemple de prix
 				category : 'appareil-photo'
 			},
@@ -41,6 +41,38 @@ export default class productService {
 				description: 'Description détaillée de l\'appareil photo 4.',
 				price: 699.99, // Exemple de prix
 				category : 'appareil-photo'
+			},
+			'camera-1': {
+				id: 'camera-1',
+				name: 'Camera 1',
+				image: 'path/to/image1.jpg',
+				description: 'Description détaillée de la camera 1.',
+				price: 299.99, // Exemple de prix
+				category : 'camera'
+			},
+			'camera-2': {
+				id: 'camera-2',
+				name: 'Camera 2',
+				image: 'path/to/image2.jpg',
+				description: 'Description détaillée de la camera 2.',
+				price: 399.99, // Exemple de prix
+				category : 'camera'
+			},
+			'camera-3': {
+				id: 'camera-3',
+				name: 'Camera 3',
+				image: 'path/to/image3.jpg',
+				description: 'Description détaillée de la camera 3.',
+				price: 499.99, // Exemple de prix
+				category : 'camera'
+			},
+			'camera-4': {
+				id: 'camera-4',
+				name: 'Camera 4',
+				image: 'path/to/image4.jpg',
+				description: 'Description détaillée de la camera 4.',
+				price: 599.99, // Exemple de prix
+				category : 'camera'
 			}
 		};
 
@@ -53,9 +85,9 @@ export default class productService {
 	static getProducts(): Product[] {
 		return [
 			{
-				id: 'appareil-photo-1',
-				name: 'Appareil Photo 1',
-				image: 'path/to/image1.jpg',
+				id: 'canon-new-canonet-28',
+				name: 'Canon New Canonet 28',
+				image: './appareils-photos/canon-new-canonet-28.png',
 				description: 'Description détaillée de l\'appareil photo 1.',
 				price: 399.99, // Exemple de prix
 				category : 'appareil-photo'
@@ -83,6 +115,38 @@ export default class productService {
 				description: 'Description détaillée de l\'appareil photo 4.',
 				price: 699.99, // Exemple de prix
 				category : 'appareil-photo'
+			},
+			{
+				id: 'camera-1',
+				name: 'Camera 1',
+				image: 'path/to/image1.jpg',
+				description: 'Description détaillée de la camera 1.',
+				price: 299.99, // Exemple de prix
+				category : 'camera'
+			},
+			{
+				id: 'camera-2',
+				name: 'Camera 2',
+				image: 'path/to/image2.jpg',
+				description: 'Description détaillée de la camera 2.',
+				price: 399.99, // Exemple de prix
+				category : 'camera'
+			},
+			{
+				id: 'camera-3',
+				name: 'Camera 3',
+				image: 'path/to/image3.jpg',
+				description: 'Description détaillée de la camera 3.',
+				price: 499.99, // Exemple de prix
+				category : 'camera'
+			},
+			{
+				id: 'camera-4',
+				name: 'Camera 4',
+				image: 'path/to/image4.jpg',
+				description: 'Description détaillée de la camera 4.',
+				price: 599.99, // Exemple de prix
+				category : 'camera'
 			}
 		];
 	}

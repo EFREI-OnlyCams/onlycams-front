@@ -1,4 +1,5 @@
 .slider-images {
+	margin-top : 50px;
     height: 500px; /* Hauteur du conteneur (ajustez selon vos besoins) */
     overflow: hidden; /* Masquer le contenu débordant */
     position: relative; /* Position relative pour positionner l'image de manière absolue */
@@ -13,7 +14,7 @@
 	}
 }
 
-.products-container {
+.products-container { 
     margin-top: 70px;
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */

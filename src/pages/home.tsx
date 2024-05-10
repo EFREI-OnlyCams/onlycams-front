@@ -38,7 +38,7 @@ const Home : FunctionComponent = () => {
             image: './images/products-appareilphoto.jpg',
             description: 'Explorez nos appareils photo haut de gamme pour des clichés exceptionnels. ' + 
 			'Découvrez les dernières technologies pour des images de qualité supérieure.',
-            link: '/appareil-photo'
+            link: '/appareils-photos'
         }
     ];
 

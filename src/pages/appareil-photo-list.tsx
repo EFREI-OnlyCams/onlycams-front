@@ -1,6 +1,4 @@
-import React from "react";
 import { FunctionComponent } from 'react';
-import { BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-router-dom';
 import "./appareil-photo-list.css";
 import ProductCard from "../components/product-card";
 import productService from "../services/product-service";

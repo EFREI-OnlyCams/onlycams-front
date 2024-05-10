@@ -22,7 +22,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 <p>{description}</p>
                 <p className="price">Prix : ${price.toFixed(2)}</p>
             </div>
-            {/* Ajoutez ici d'autres éléments d'action comme "Ajouter au panier" si nécessaire */}
         </div>
     );
 };
