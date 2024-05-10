@@ -9,7 +9,7 @@ import './home.css';
 
 const Home : FunctionComponent = () => {
 	const images = [
-		'./images/caroussel-1.jpeg',
+		'./images/caroussel-1.jpg',
 		'./images/caroussel-2.jpg',
 		'./images/caroussel-3.jpeg',
     ];

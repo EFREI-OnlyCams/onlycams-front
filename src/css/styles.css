@@ -17,6 +17,7 @@
 #nav-middle{
   a {
     color : black;
+    font-weight: bold;
   }
   li{
     text-align: center;
@@ -28,6 +29,7 @@
 #nav-right{
   a {
     color : black;
+    font-weight: bold;
   }
 }
 
