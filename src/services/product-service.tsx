@@ -117,9 +117,9 @@ export default class productService {
 				category : 'appareil-photo'
 			},
 			{
-				id: 'camera-1',
+				id: './cameras/camera1.png',
 				name: 'Camera 1',
-				image: 'path/to/image1.jpg',
+				image: './cameras/camera1.png',
 				description: 'Description détaillée de la camera 1.',
 				price: 299.99, // Exemple de prix
 				category : 'camera'
@@ -127,7 +127,7 @@ export default class productService {
 			{
 				id: 'camera-2',
 				name: 'Camera 2',
-				image: 'path/to/image2.jpg',
+				image: './cameras/camera2.png',
 				description: 'Description détaillée de la camera 2.',
 				price: 399.99, // Exemple de prix
 				category : 'camera'
@@ -135,7 +135,7 @@ export default class productService {
 			{
 				id: 'camera-3',
 				name: 'Camera 3',
-				image: 'path/to/image3.jpg',
+				image: './cameras/camera3.png',
 				description: 'Description détaillée de la camera 3.',
 				price: 499.99, // Exemple de prix
 				category : 'camera'
@@ -143,7 +143,7 @@ export default class productService {
 			{
 				id: 'camera-4',
 				name: 'Camera 4',
-				image: 'path/to/image4.jpg',
+				image: './cameras/camera4.png',
 				description: 'Description détaillée de la camera 4.',
 				price: 599.99, // Exemple de prix
 				category : 'camera'
