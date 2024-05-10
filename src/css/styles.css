@@ -32,9 +32,20 @@
 }
 
 body {
-  background-color: #D1BB9E /* Set the background color to a light gray */
+  /*background-color: #d0af84 /* Set the background color to a light gray */
+  background-image: url('../../public/images/BackgroundMountain.jpg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
+  background-size: cover; /* Adjusts the background image size to cover the entire container */
+  background-repeat: no-repeat;
+
+  nav {
+    background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
+    a{
+      color : white;
+
+    }
+    
+  
+  }
 }
 
-#navbar{
-  background-color: #FFF2E1;
-}
+

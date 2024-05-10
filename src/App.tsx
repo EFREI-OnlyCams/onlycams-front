@@ -40,7 +40,7 @@ function App() {
     <Router>
       <div>
         <nav>
-          <div id = "navbar" className="nav-wrapper">
+          <div id = "navbar" className = "NavBar">
             {/* Cameras and Enceintes (Middle links) */}
             <ul id="nav-middle" className="left middle" >
               <li><Link to="/cameras">Cameras</Link></li>
