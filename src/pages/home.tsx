@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Link, Routes, Navigate} from 'react-rou
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import './home.css';
+import '../css/home.css';
 
 const Home : FunctionComponent = () => {
 	const images = [
