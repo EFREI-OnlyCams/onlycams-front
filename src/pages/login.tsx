@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationService from '../services/authentication-service';
-import './home.css';
 
 type Field = {
   value?: any,
@@ -14,7 +13,11 @@ type Form = {
   password: Field
 }
 
-const Login: FunctionComponent = () => {
+interface LoginProps {
+	onLogin: () => void;
+  }
+
+const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
   const navigate = useNavigate();
 
@@ -33,9 +36,15 @@ const Login: FunctionComponent = () => {
     setForm({ ...form, ...newField});
   }
 
-  const handleLogin = () => {
-	navigate('/home');
-  }
+  const handleLogin = () => {// Récupérez l'URL de redirection depuis le local storage
+	const redirectPath = localStorage.getItem('redirectPath') || '/home';
+	
+	// Supprimez l'URL de redirection du local storage
+	localStorage.removeItem('redirectPath');
+  
+	// Redirigez l'utilisateur vers l'URL de redirection
+	navigate(redirectPath);
+  };
 
   const validateForm = () => {
     let newForm: Form = form;
@@ -73,7 +82,7 @@ const Login: FunctionComponent = () => {
       AuthenticationService.login(form.username.value, form.password.value).then(isAuthenticated => {
 		console.log(form.username.value, form.password.value, isAuthenticated);
         if(!isAuthenticated) {
-          setMessage('🔐 Identifiant ou mot de passe incorrect.');
+          setMessage('🔐 Email ou mot de passe incorrect.');
           return;
         }
         
@@ -98,7 +107,7 @@ const Login: FunctionComponent = () => {
                 </div>}
                 {/* Field username */}
                 <div className="form-group">
-                  <label htmlFor="username">Identifiant</label>
+                  <label htmlFor="username">Email</label>
                   <input id="username" type="text" name="username" className="form-control" value={form.username.value} onChange={e => handleInputChange(e)}></input>
                   {/* error */}
                   {form.username.error &&
@@ -119,7 +128,7 @@ const Login: FunctionComponent = () => {
               </div>
               <div className="card-action center">
                 {/* Submit button */}
-                <button type="submit" className="btn">Valider</button>
+                <button type="submit" className="btn" onClick={onLogin}>Valider</button>
               </div>
             </div>
           </div>

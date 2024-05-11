@@ -1,10 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import productService from '../services/product-service';
 import { Product } from '../utils/product-type';
 import '../css/product-details.css';
+import BasketService from '../services/basket-service';
+import AuthenticationService from '../services/authentication-service';
 
 const ProductDetails: FunctionComponent = () => {
+	const Navigate = useNavigate();
+
     const { productId } = useParams<{ productId: string }>(); // Extraire productId des paramètres d'URL
     const [product, setProduct] = useState<Product | undefined>(undefined);
 
@@ -22,6 +26,29 @@ const ProductDetails: FunctionComponent = () => {
 
 	const quantityOptions = [1, 2, 3, 4, 5]; 
 
+	const handleLoginRedirect = () => {
+		localStorage.setItem('redirectPath', window.location.pathname);
+		Navigate('/login');
+	};
+
+	const handleAddToBasket = () => {
+		// Si je suis connecté, j'ajoute le produit au panier
+		BasketService.addProductToBasket(productId as string);
+
+		// Sinon je redirige l'utilisateur vers la page de connexion
+		if (!AuthenticationService.isAuthenticated()) {
+			handleLoginRedirect();
+		}
+	}
+
+	const handleGoToBuy = () => {
+		// Sinon je redirige l'utilisateur vers la page de connexion
+		if (!AuthenticationService.isAuthenticated()) {
+			handleLoginRedirect();
+		}
+
+		// Si je suis connecté, je vais tout de suite l'acheter
+	}
     return (
         <div className='product-details'>
             <img src={image} alt={name} className='product-image' />
@@ -39,8 +66,8 @@ const ProductDetails: FunctionComponent = () => {
                     </select>
                 </div>
                 {/* Boutons d'action */}
-                <button className='btn'>Ajouter au panier</button>
-                <button className='btn'>Acheter maintenant</button>
+                <button className='btn' onClick={handleAddToBasket}>Ajouter au panier</button>
+                <button className='btn' onClick={handleGoToBuy}>Acheter maintenant</button>
             </div>
         </div>
     );

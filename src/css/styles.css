@@ -51,6 +51,9 @@ body {
 }
 
 footer{
+	position:relative;
+	bottom:0;
+	width: 100%;
   nav {
     background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
     a{

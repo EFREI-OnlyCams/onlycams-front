@@ -25,7 +25,7 @@ const Home : FunctionComponent = () => {
 
 	const products = [
         {
-            id: 1,
+            id: 13132,
             name: 'Cameras',
             image: './images/products-camera.jpg',
             description: "Découvrez notre sélection de caméras professionnelles. " +
@@ -33,7 +33,7 @@ const Home : FunctionComponent = () => {
             link: '/cameras'
         },
         {
-            id: 2,
+            id: 233232,
             name: 'Appareils photos',
             image: './images/products-appareilphoto.jpg',
             description: 'Explorez nos appareils photo haut de gamme pour des clichés exceptionnels. ' + 
