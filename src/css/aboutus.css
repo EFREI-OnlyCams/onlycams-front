@@ -1,0 +1,55 @@
+
+.card-image img {
+  max-width: 100%; /* Ensure image doesn't exceed the container width */
+  max-height: 100%; /* Ensure image doesn't exceed the container height */
+  object-fit: cover; /* Cover the entire container with the image, maintaining aspect ratio */
+}
+
+p{
+    margin-top: 0px; /* Espacement supérieur pour la description du produit */
+    text-align: center; /* Centrage du texte */
+    color: black;
+    font-weight: bold;
+}
+
+
+.card-title{
+    font-size: 20px;
+    margin-top: 10px; /* Espacement supérieur pour le nom du produit */
+    text-align: center; /* Centrage du texte */
+    font-weight: bold; /* Texte en gras */
+
+}
+
+.center-align{
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: Garamond;
+}
+
+.card-content{
+    background-color: rgba(40, 84, 120, 0.8);
+}
+
+
+.about-text{
+	margin-top : 20px;
+	text-align: center;
+	color : black;
+	font-weight: bold;
+	font-family: Garamond;
+	background-color: rgba(55, 97, 131, 0.6);
+	padding: 15px; /* Adjust padding as needed */
+    border-radius: 20px; /* Optional: adds rounded corners to the box */
+    p{
+        color: white;
+        font-size: medium;
+    }
+    
+}
+
+
+
+
+
