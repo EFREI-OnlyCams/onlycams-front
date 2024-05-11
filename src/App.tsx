@@ -5,7 +5,6 @@ import Home from './pages/home';
 import AppareilPhotoList from './pages/appareil-photo-list';
 import ProductDetails from './pages/product-details';
 import CameraList from './pages/camera-list';
-import  PrivateRoute from './PrivateRoute';
 import AccountInformation from './pages/account-information';
   
 import './css/styles.css'; // Assuming your CSS file path is correct
@@ -39,14 +38,16 @@ function App() {
 
         {/* Define routes */}
         <Routes>
-		<Route path="/login" element={<Login/>} />
-		<Route path="/home" element={<Home/>}/>
-		<Route path="*" element={<PageNotFound/>} />
-		<Route path="/appareils-photos" element={<AppareilPhotoList/>} />
-		<Route path="/cameras" element={<CameraList/>} />
-		<Route path="/product/:productId" element={<ProductDetails />} />
-		<Route path="/" element={<Navigate to="/home"/>} />
-      </Routes>
+			<Route path="/home" element={<Home/>}/>
+			<Route path="/appareils-photos" element={<AppareilPhotoList/>} />
+			<Route path="/cameras" element={<CameraList/>} />
+			<Route path="/product/:productId" element={<ProductDetails />} />
+
+			<Route path="/login" element={<Login/>} />
+
+			<Route path="/" element={<Navigate to="/home"/>} />
+			<Route path="*" element={<PageNotFound/>} />
+		</Routes>
       </div>
     </Router>
   );
