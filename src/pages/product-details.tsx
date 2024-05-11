@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import productService from '../services/product-service';
 import { Product } from '../utils/product-type';
-import './product-details.css';
+import '../css/product-details.css';
 
 const ProductDetails: FunctionComponent = () => {
     const { productId } = useParams<{ productId: string }>(); // Extraire productId des paramètres d'URL
