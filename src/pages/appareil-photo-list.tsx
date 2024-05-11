@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import "./appareil-photo-list.css";
+import "../css/appareil-photo-list.css";
 import ProductCard from "../components/product-card";
 import productService from "../services/product-service";
 

@@ -1,5 +1,5 @@
 import { FunctionComponent } from 'react';
-import "./camera-list.css";
+import "../css/camera-list.css";
 import ProductCard from "../components/product-card";
 import productService from "../services/product-service";
 
