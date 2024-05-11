@@ -44,6 +44,9 @@ const Home : FunctionComponent = () => {
 
 	return (
 		<div className='main-content'>
+            <div className='intro-text'>
+                <h5>Découvrez notre sélection de caméras professionnelles et d'appareils photo haut de gamme.</h5>
+            </div>
 			<Slider {...settings}>
 				{images.map((image, index) => (
 					<div key={index} className="slider-images">

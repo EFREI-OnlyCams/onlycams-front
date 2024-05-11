@@ -20,8 +20,12 @@ const CameraList : FunctionComponent = () => {
 	return (
 		<div className="main-content">
 			<div className="title">
+				
 				<h1>Cameras</h1>
+				<div className = "intro-text">
 				<p>{description}</p>
+				</div>
+				
 			</div>
 
 			<div className="row">
