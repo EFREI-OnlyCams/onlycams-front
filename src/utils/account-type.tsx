@@ -1,9 +1,9 @@
 export type Account = {
 	email: string;
-	password: string;
-	lastName?: string;
-	firstName?: string;
-	adress?: string;
-	phoneNumber?: string;
+	motDePasse: string;
+	nom?: string;
+	prenom?: string;
+	adresse?: string;
+	numeroTel?: string;
 	note?: string;
 };

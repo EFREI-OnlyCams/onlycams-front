@@ -39,48 +39,48 @@ const AccountInformation = () => {
             />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="motDePasse">Password</label>
             <input
               type="password"
-              name="password"
-              value={account.password}
+              name="motDePasse"
+              value={account.motDePasse}
               onChange={handleInputChange}
               required
             />
           </div>
           <div className="input-field">
-            <label htmlFor="lastName">Last Name</label>
+            <label htmlFor="nom">Last Name</label>
             <input
               type="text"
-              name="lastName"
-              value={account.lastName}
+              name="nom"
+              value={account.nom}
               onChange={handleInputChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="firstName">First Name</label>
+            <label htmlFor="prenom">First Name</label>
             <input
               type="text"
-              name="firstName"
-              value={account.firstName}
+              name="prenom"
+              value={account.prenom}
               onChange={handleInputChange}
             />
           </div>
 		  <div className="input-field">
-            <label htmlFor="adress">adress</label>
+            <label htmlFor="adresse">adress</label>
             <input
               type="text"
-              name="adress"
-              value={account.adress}
+              name="adresse"
+              value={account.adresse}
               onChange={handleInputChange}
             />
           </div>
           <div className="input-field">
-            <label htmlFor="phoneNumber">Phone Number</label>
+            <label htmlFor="numeroTel">Phone Number</label>
             <input
               type="text"
-              name="phoneNumber"
-              value={account.phoneNumber}
+              name="numeroTel"
+              value={account.numeroTel}
               onChange={handleInputChange}
             />
           </div>
@@ -99,9 +99,9 @@ const AccountInformation = () => {
       ) : (
         <div>
           <p>Email: {account.email}</p>
-          <p>Last Name: {account.lastName}</p>
-          <p>First Name: {account.firstName}</p>
-          <p>Phone Number: {account.phoneNumber}</p>
+          <p>Last Name: {account.nom}</p>
+          <p>First Name: {account.prenom}</p>
+          <p>Phone Number: {account.numeroTel}</p>
           <p>Note: {account.note}</p>
           <button className="waves-effect waves-light btn" onClick={() => setEditMode(true)}>Edit</button>
         </div>

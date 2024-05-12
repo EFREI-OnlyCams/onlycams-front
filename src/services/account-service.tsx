@@ -1,26 +1,26 @@
 import { Account } from "../utils/account-type";
 
 export default class AccountService {
-	static account: Account = { email: '', password: '', lastName: '', firstName: '', phoneNumber: '', note: ''};
+	static account: Account = { email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
 
 	static setEmail = (email: string): void => {
 		AccountService.account.email = email;
 	}
 
-	static setPassword = (password: string): void => {
-		AccountService.account.password = password;
+	static setPassword = (motDePasse: string): void => {
+		AccountService.account.motDePasse = motDePasse;
 	}
 
-	static setLastName = (lastName: string): void => {
-		AccountService.account.lastName = lastName;
+	static setLastName = (nom: string): void => {
+		AccountService.account.nom = nom;
 	}
 
-	static settFirstName = (firstName: string): void => {
-		AccountService.account.firstName = firstName;
+	static settFirstName = (prenom: string): void => {
+		AccountService.account.prenom = prenom;
 	}
 
-	static setPhoneNumber = (phoneNumber: string): void => {
-		AccountService.account.phoneNumber = phoneNumber;
+	static setPhoneNumber = (numeroTel: string ): void => {
+		AccountService.account.numeroTel = numeroTel;
 	}
 
 	static setNote = (note: string): void => {
@@ -36,7 +36,7 @@ export default class AccountService {
 	}
 
 	static clearAccount(): void {
-		this.account = { email: '', password: '' };
+		this.account = { email: '', motDePasse: '' };
 	}
 
 }

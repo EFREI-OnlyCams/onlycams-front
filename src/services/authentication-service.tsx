@@ -6,11 +6,11 @@ export default class AuthenticationService {
 	static authenticated:boolean = false;
 
   
-	static login(email: string, password: string): Promise<boolean> {
-	  console.log(`Email: ${email}, Password: ${password}`);
-	  const isAuthenticated = (email === "only@cams" && password === 'onlycams');
+	static login(email: string, mot_de_passe: string): Promise<boolean> {
+	  console.log(`Email: ${email}, Password: ${mot_de_passe}`);
+	  const isAuthenticated = (email === "only@cams" && mot_de_passe === 'onlycams');
 	  AccountService.setEmail(email);
-	  AccountService.setPassword(password);
+	  AccountService.setPassword(mot_de_passe);
   
 	  return new Promise(resolve => {
 		setTimeout(() => {
