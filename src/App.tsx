@@ -12,6 +12,7 @@ import './css/styles.css'; // Assuming your CSS file path is correct
 import AuthenticationService from './services/authentication-service';
 import Cart from './pages/cart';
 import Registration from './pages/registration';
+import Order from './pages/order';
 
 function App() {
 
@@ -19,12 +20,12 @@ function App() {
 
 	// Ca permet de réafficher les informations de l'utilisateur connecté
 	const handleLogin = () => {
-		setIsAuthenticated(true); // Mettre à jour l'état d'authentification après la connexion réussie
+		setIsAuthenticated(true); 
 	};
 
 	const handleLogout = async () => {
 		await AuthenticationService.logout();
-		setIsAuthenticated(false); // Mettre à jour l'état d'authentification après la déconnexion
+		setIsAuthenticated(false);
 	};
 
 	return (
@@ -54,8 +55,8 @@ function App() {
 					</>
 				) : (
 					<>
-						<li><Link to="/login">Sign up</Link></li>
-						<li><Link to="registration">Sign in</Link></li>
+						<li><Link to="/login">Sign in</Link></li>
+						<li><Link to="registration">Sign up</Link></li>
 					</>
 				)}
 				</ul>
@@ -79,7 +80,8 @@ function App() {
 				<Route path="/my-cart" element={
 				 isAuthenticated ? <Cart/> : <Navigate to="/login" />}
 				/>
-				
+				<Route path="/order" element={<Order/>}
+				/>
 				<Route path="/about" element={<About />} /> {/* Add this line */}
 				<Route path="/" element={<Navigate to="/home" />} />
 				</Routes>

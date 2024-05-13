@@ -32,14 +32,26 @@ const ProductDetails: FunctionComponent = () => {
 	};
 
 	const handleAddToBasket = () => {
-		// Si je suis connecté, j'ajoute le produit au panier
-		BasketService.addProductToBasket(productId as string);
-
-		// Sinon je redirige l'utilisateur vers la page de connexion
-		if (!AuthenticationService.isAuthenticated()) {
+		const selectedQuantity = document.getElementById('quantity') as HTMLSelectElement | null;
+	  
+		if (selectedQuantity) {
+		  const quantity = selectedQuantity.value; // Récupère la valeur sélectionnée dans le <select>
+		  
+		  // Si je suis connecté, j'ajoute le produit au panier en fonction de la quantité sélectionnée
+		  if (AuthenticationService.isAuthenticated()) {
+			const productId = 'yourProductId'; // Remplacez par votre logique pour obtenir l'ID du produit
+			const quantityValue = parseInt(quantity); // Convertit la chaîne en nombre entier
+	  
+			// Ajoute le produit au panier la quantité sélectionnée de fois
+			for (let i = 0; i < quantityValue; i++) {
+			  BasketService.addProductToBasket(productId);
+			}
+		  } else {
+			// Redirige l'utilisateur vers la page de connexion
 			handleLoginRedirect();
+		  }
 		}
-	}
+	  };	  
 
 	const handleGoToBuy = () => {
 		// Sinon je redirige l'utilisateur vers la page de connexion

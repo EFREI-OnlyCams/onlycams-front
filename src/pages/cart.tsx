@@ -40,8 +40,8 @@ const Cart = () => {
       {basketProducts.length > 0 && (
         <div className="total-section">
           <h4>Total Price: {totalPrice} €</h4>
-          <Link to="/checkout" className="waves-effect waves-light btn">
-            Proceed to Checkout
+          <Link to="/order" className="waves-effect waves-light btn">
+            Proceed to the order
           </Link>
         </div>
       )}
