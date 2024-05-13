@@ -20,8 +20,12 @@ const Order = () => {
   };
 
   const placeOrder = () => {
-    // Logique pour passer la commande avec l'adresse et le numéro de carte bancaire
-    // Ici, vous pouvez appeler un service pour finaliser la commande
+	// vérification de la validité de la carte de crédit
+	if (cardNumber.length !== 16) {
+	  alert('Invalid card number');
+	  return;
+	}
+	
     setOrderPlaced(true);
   };
 
