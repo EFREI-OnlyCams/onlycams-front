@@ -13,6 +13,7 @@ import AuthenticationService from './services/authentication-service';
 import Cart from './pages/cart';
 import Registration from './pages/registration';
 import Order from './pages/order';
+import OrderStatus from './pages/order-status';
 
 function App() {
 
@@ -75,13 +76,18 @@ function App() {
 				<Route path="/product/:productId" element={<ProductDetails />} />
 
 				<Route path="/account" element={
-					isAuthenticated ? <AccountInformation /> : <Navigate to="/login" />
+					isAuthenticated ? <AccountInformation /> : <Navigate to="/login"/>
 				} />
 				<Route path="/my-cart" element={
-				 isAuthenticated ? <Cart/> : <Navigate to="/login" />}
+				 isAuthenticated ? <Cart/> : <Navigate to="/login"/>}
 				/>
-				<Route path="/order" element={<Order/>}
+				<Route path="/order" element={
+				 isAuthenticated ? <Order/> : <Navigate to="/login"/>}
 				/>
+				<Route path="/order-status" element={
+				 isAuthenticated ? <OrderStatus/> : <Navigate to="/login"/>}
+				/>
+
 				<Route path="/about" element={<About />} /> {/* Add this line */}
 				<Route path="/" element={<Navigate to="/home" />} />
 				</Routes>
