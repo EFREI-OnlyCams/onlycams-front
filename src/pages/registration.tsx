@@ -36,6 +36,7 @@ const Registration: FunctionComponent = () => {
       }
       // Optionally handle success response here
       console.log('Account registered successfully');
+      window.location.href = 'http://localhost:3000/login';
     } catch (error) {
       console.error('Error registering account:');
     }
