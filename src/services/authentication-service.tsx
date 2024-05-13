@@ -8,7 +8,9 @@ export default class AuthenticationService {
   
 	static login(id: string, email: string, mot_de_passe: string): Promise<boolean> {
 	  console.log(`Email: ${email}, Password: ${mot_de_passe}`);
-	  const isAuthenticated = id !=="-1";
+	  const idString = id.toString(); 
+	  console.log("ID:", idString);
+	  const isAuthenticated = !(idString === "-1"); 
 	  AccountService.setId(id);
 	  AccountService.setEmail(email);
 	  AccountService.setPassword(mot_de_passe);
