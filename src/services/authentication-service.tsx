@@ -9,7 +9,6 @@ export default class AuthenticationService {
 	static login(id: string, email: string, mot_de_passe: string): Promise<boolean> {
 	  console.log(`Email: ${email}, Password: ${mot_de_passe}`);
 	  const idString = id.toString(); 
-	  console.log("ID:", idString);
 	  const isAuthenticated = !(idString === "-1"); 
 	  AccountService.setId(id);
 	  AccountService.setEmail(email);
@@ -28,13 +27,20 @@ export default class AuthenticationService {
 		return new Promise(resolve => {
 		setTimeout(() => {
 		  this.authenticated = false;
+		  localStorage.setItem('userId', "-1");
 		  resolve(true);
 		}, 1000);
 	  });
 	}
 
 	static isAuthenticated(): boolean {
-	  return this.authenticated;
+		const userId = localStorage.getItem('userId');
+
+		// Vérifier si userId n'est pas null et est différent de -1
+		if (userId !== null && userId !== '-1') {
+			return true;
+		}
+		return false;
   	}
 
 	static registerAccount(account : Account): void {
