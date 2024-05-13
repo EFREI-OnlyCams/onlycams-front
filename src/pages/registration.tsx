@@ -63,6 +63,7 @@ const Registration: FunctionComponent = () => {
             name="motDePasse"
             onChange={handleInputChange}
             required
+            minLength={6}
           />
         </div>
         <div className="input-field">

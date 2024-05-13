@@ -1,4 +1,7 @@
 import { Account } from "../utils/account-type";
+import axios from 'axios';
+
+const ACCOUNT_API_BASE_URL = 'http://localhost:8081/api'; // Replace with your actual backend URL
 
 export default class AccountService {
 	static account: Account = {id:'', email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
@@ -41,5 +44,6 @@ export default class AccountService {
 	static clearAccount(): void {
 		this.account = {id: '', email: '', motDePasse: '' };
 	}
+
 
 }
