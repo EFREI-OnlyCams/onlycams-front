@@ -1,8 +1,11 @@
 import { Account } from "../utils/account-type";
 
 export default class AccountService {
-	static account: Account = { email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
+	static account: Account = {id:'', email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
 
+	static setId = (id: string): void => {
+		AccountService.account.id=id;
+	}
 	static setEmail = (email: string): void => {
 		AccountService.account.email = email;
 	}
@@ -36,7 +39,7 @@ export default class AccountService {
 	}
 
 	static clearAccount(): void {
-		this.account = { email: '', motDePasse: '' };
+		this.account = {id: '', email: '', motDePasse: '' };
 	}
 
 }

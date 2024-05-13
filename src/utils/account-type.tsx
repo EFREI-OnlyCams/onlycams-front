@@ -1,4 +1,5 @@
 export type Account = {
+	id: string;
 	email: string;
 	motDePasse: string;
 	nom?: string;

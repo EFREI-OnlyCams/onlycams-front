@@ -74,23 +74,43 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
     return newForm.username.isValid && newForm.password.isValid;
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isFormValid = validateForm();
-    if(isFormValid) {
+    
+    if (isFormValid) {
       setMessage('👉 Tentative de connexion en cours ...');
-      AuthenticationService.login(form.username.value, form.password.value).then(isAuthenticated => {
-		console.log(form.username.value, form.password.value, isAuthenticated);
-        if(!isAuthenticated) {
-          setMessage('🔐 Email ou mot de passe incorrect.');
-          return;
+      
+      try {
+        const response = await fetch('http://localhost:8081/users/verify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email: form.username.value, motDePasse: form.password.value }),
+        });
+        
+        if (!response.ok) {
+          throw new Error('Failed to verify credentials');
         }
         
-        handleLogin();
-        
-      });
+        const userId = await response.json(); // Récupérer la valeur de retour de votre endpoint
+        AuthenticationService.login(userId,form.username.value, form.password.value).then(isAuthenticated => {
+          console.log(form.username.value, form.password.value, isAuthenticated);
+              if(!isAuthenticated) {
+                setMessage('🔐 Email ou mot de passe incorrect.');
+                return;
+              }
+              localStorage.setItem('userId', userId.toString()); // Stocker l'ID de l'utilisateur dans le localStorage
+            handleLogin();
+            });
+      } catch (error) {
+        console.error('Error verifying credentials:', error);
+        setMessage('🔐 Une erreur est survenue lors de la vérification des informations d\'identification.');
+      }
     }
   }
+  
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>

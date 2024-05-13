@@ -6,9 +6,10 @@ export default class AuthenticationService {
 	static authenticated:boolean = false;
 
   
-	static login(email: string, mot_de_passe: string): Promise<boolean> {
+	static login(id: string, email: string, mot_de_passe: string): Promise<boolean> {
 	  console.log(`Email: ${email}, Password: ${mot_de_passe}`);
-	  const isAuthenticated = (email === "only@cams" && mot_de_passe === 'onlycams');
+	  const isAuthenticated = id !=="-1";
+	  AccountService.setId(id);
 	  AccountService.setEmail(email);
 	  AccountService.setPassword(mot_de_passe);
   
