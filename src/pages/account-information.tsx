@@ -1,111 +1,70 @@
-import React, { useState } from 'react';
-import AccountService from '../services/account-service';
+import React, { FunctionComponent, useState, useEffect } from 'react';
+import { Account } from '../utils/account-type';
 import '../css/account-information.css';
 
-const AccountInformation = () => {
-  const [account, setAccount] = useState(AccountService.account);
-  const [editMode, setEditMode] = useState(false);
+const AccountInformation: FunctionComponent = () => {
+  const [account, setAccount] = useState<Account>({
+    id: '',
+    nom: '',
+    prenom: '',
+    motDePasse: '',
+    numeroTel: '',
+    note: '',
+    adresse: '',
+    email: '',
+  });
 
-  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
-    const { name, value } = e.target;
-    setAccount({ ...account, [name]: value });
-  };
-
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    // Ajoutez ici la logique pour soumettre les modifications au backend
-    console.log('Account updated:', account);
-    setEditMode(false); // Désactiver le mode d'édition après la soumission
-  };
-
-  const handleCancelEdit = () => {
-    setAccount(AccountService.account); // Réinitialiser les champs
-    setEditMode(false); // Désactiver le mode d'édition
-  };
+  useEffect(() => {
+    // Fetch account information
+    const fetchAccount = async () => {
+      try {
+        const userId = localStorage.getItem('userId');
+        const response = await fetch(`http://localhost:8081/users/infosUser/${userId}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch account details');
+        }
+        const data: Account = await response.json();
+        setAccount(data);
+      } catch (error) {
+        console.error('Error fetching account details:', error);
+      }
+    };
+    fetchAccount();
+  }, []);
 
   return (
     <div className="container">
       <h2>Account Information</h2>
-      {editMode ? (
-        <form onSubmit={handleSubmit} className="col s12">
-          <div className="input-field">
-		  	<label htmlFor="email">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={account.email}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="motDePasse">Password</label>
-            <input
-              type="password"
-              name="motDePasse"
-              value={account.motDePasse}
-              onChange={handleInputChange}
-              required
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="nom">Last Name</label>
-            <input
-              type="text"
-              name="nom"
-              value={account.nom}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="prenom">First Name</label>
-            <input
-              type="text"
-              name="prenom"
-              value={account.prenom}
-              onChange={handleInputChange}
-            />
-          </div>
-		  <div className="input-field">
-            <label htmlFor="adresse">adress</label>
-            <input
-              type="text"
-              name="adresse"
-              value={account.adresse}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="input-field">
-            <label htmlFor="numeroTel">Phone Number</label>
-            <input
-              type="text"
-              name="numeroTel"
-              value={account.numeroTel}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className="input-field">
-		  	<label htmlFor="note">Note</label>
-            <textarea
-              name="note"
-              value={account.note}
-              onChange={handleInputChange}
-              className="materialize-textarea"
-            />
-          </div>
-          <button className="waves-effect waves-light btn" type="submit">Save</button>
-          <button className="waves-effect waves-light btn red" type="button" onClick={handleCancelEdit}>Cancel</button>
-        </form>
-      ) : (
-        <div>
-          <p>Email: {account.email}</p>
-          <p>Last Name: {account.nom}</p>
-          <p>First Name: {account.prenom}</p>
-          <p>Phone Number: {account.numeroTel}</p>
-          <p>Note: {account.note}</p>
-          <button className="waves-effect waves-light btn" onClick={() => setEditMode(true)}>Edit</button>
+      <div className="col s12">
+        <div className="input-field">
+          <label>Email</label>
+          <input type="text" value={account.email} disabled />
         </div>
-      )}
+        <div className="input-field">
+          <label>Password</label>
+          <input type="password" value="********" disabled />
+        </div>
+        <div className="input-field">
+          <label>Last Name</label>
+          <input type="text" value={account.nom} disabled />
+        </div>
+        <div className="input-field">
+          <label>First Name</label>
+          <input type="text" value={account.prenom} disabled />
+        </div>
+        <div className="input-field">
+          <label>Address</label>
+          <input type="text" value={account.adresse} disabled />
+        </div>
+        <div className="input-field">
+          <label>Phone Number</label>
+          <input type="text" value={account.numeroTel} disabled />
+        </div>
+        <div className="input-field">
+          <label>Note</label>
+          <textarea value={account.note} className="materialize-textarea" disabled />
+        </div>
+      </div>
     </div>
   );
 };
