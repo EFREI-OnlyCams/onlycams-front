@@ -14,6 +14,7 @@ import Cart from './pages/cart';
 import Registration from './pages/registration';
 import Order from './pages/order';
 import OrderStatus from './pages/order-status';
+import CommandesPage from './pages/commandes';
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
 				{isAuthenticated ? ( 
 					<>
 						<li><Link to="/account">Informations</Link></li>
+						<li><Link to="/commandes">Commandes</Link></li> {/* Add this line */}
 						<li><Link to="/home" onClick={handleLogout}>Logout</Link></li>
 					</>
 				) : (
@@ -90,6 +92,16 @@ function App() {
 
 				<Route path="/about" element={<About />} /> {/* Add this line */}
 				<Route path="/" element={<Navigate to="/home" />} />
+				<Route
+					path="/commandes"
+					element={
+						isAuthenticated ? (
+							<CommandesPage userId={localStorage.getItem('userId') ?? ''} />
+						) : (
+							<Navigate to="/login" />
+						)
+					}
+				/>
 				</Routes>
 			</main>
 

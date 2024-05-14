@@ -1,0 +1,48 @@
+/* Styles pour la page commandes */
+
+/* Conteneur principal */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Titre de la page */
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Liste des commandes */
+.order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Éléments de la liste des commandes */
+.order-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Détails de la commande */
+.order-details {
+    font-size: 14px;
+    color: #888;
+}
+
+/* Bouton de commande */
+.order-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Styles supplémentaires... */

@@ -38,7 +38,7 @@ body {
   background-image: url('../../public/images/BackgroundMountain.jpg'); /* Replace 'your-image-url.jpg' with the URL or path to your image */
   background-size: cover; /* Adjusts the background image size to cover the entire container */
   background-repeat: no-repeat;
-
+  backdrop-filter: blur(3px);
   nav {
     background-color: rgba(128, 128, 128, 0.2); /* Transparent grey background */
     a{
