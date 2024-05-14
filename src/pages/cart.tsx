@@ -1,13 +1,39 @@
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BasketService from '../services/basket-service';
+import productService from '../services/product-service';
 import { Product } from '../utils/product-type';
-import '../css/cart.css'; // Importez le CSS personnalisé pour le style de la page
+import '../css/cart.css';
 
-const Cart = () => {
-  const basketProducts = BasketService.getBasket();
+const Cart: FunctionComponent = () => {
+  const [basketProducts, setBasketProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  // Calcul du prix total du panier
+  useEffect(() => {
+    const fetchBasket = async () => {
+      try {
+        const productIds: string[] = await BasketService.getBasket(); // Fetch product IDs from the basket
+        console.log('productIds', productIds);
+        
+        // Fetch product details based on IDs
+        const products = await productService.getProductsByIds(productIds);
+        console.log('products', products);
+        setBasketProducts(products);
+      } catch (error) {
+        console.error('Error fetching basket products', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBasket();
+  }, []);
+
   const totalPrice = basketProducts.reduce((total, product) => total + product.price, 0);
+
+  if (loading) {
+    return <div>Loading...</div>; // Display loading state while fetching product details
+  }
 
   return (
     <div className="container cart-page">

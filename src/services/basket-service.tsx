@@ -1,23 +1,41 @@
-import AccountService from "./account-service";
-import productService from "./product-service";
-import { Product } from "../utils/product-type";
+// BasketService.tsx
+import { Product } from '../utils/product-type';
+import AuthenticationService from './authentication-service';
+import productService from './product-service';
 
 export default class BasketService {
+    static async addProductToBasket(productId: number, quantity: number): Promise<void> {
+        const userId = localStorage.getItem('userId');
+        if (!userId) {
+            throw new Error("User ID not found");
+        }
+	
+        const response = await fetch(`http://localhost:8081/basket/add/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ userId, productId, quantity }),
+        });
 
-	static basket: Product[] = [];
+        if (!response.ok) {
+            throw new Error("Failed to add product to basket");
+        }
+    }
 
-	static addProductToBasket(productId: string): void {
-		const product = productService.getProductData(productId);
-		if (product) {
-			this.basket.push(product);
+    static async getBasket(): Promise<string[]> {
+		const userId = localStorage.getItem('userId');
+		if (!userId) {
+			throw new Error("User ID not found");
 		}
-	}
-
-	static removeProductFromBasket(productId: string): void {
-		this.basket = this.basket.filter((product) => product.id !== productId);
-	}
-
-	static getBasket(): Product[] {
-		return this.basket;
-	}
+	
+		const response = await fetch(`http://localhost:8081/basket/get/${userId}`);
+		if (!response.ok) {
+			throw new Error("Failed to fetch basket");
+		}
+	
+		const basketItems = await response.json();
+		console.log(basketItems);
+		return basketItems;
+	}	
 }

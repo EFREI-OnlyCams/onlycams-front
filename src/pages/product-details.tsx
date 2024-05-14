@@ -7,68 +7,83 @@ import BasketService from '../services/basket-service';
 import AuthenticationService from '../services/authentication-service';
 
 const ProductDetails: FunctionComponent = () => {
-	const Navigate = useNavigate();
+	const navigate = useNavigate();
+	const { productId } = useParams<{ productId: string }>();
+	const [product, setProduct] = useState<Product | undefined>(undefined);
 
-    const { productId } = useParams<{ productId: string }>(); // Extraire productId des paramètres d'URL
-    const [product, setProduct] = useState<Product | undefined>(undefined);
+	useEffect(() => {
+		if (productId) {
+			const fetchProduct = async () => {
+				const fetchedProduct = await productService.getProductData(productId);
+				setProduct(fetchedProduct);
+			};
 
-    useEffect(() => {
-        // Charger les détails du produit à partir du service productService
-        const fetchedProduct = productService.getProductData(productId);
-        setProduct(fetchedProduct);
-    }, [productId]); // Exécuter cette fonction useEffect à chaque changement de productId
+			fetchProduct();
+		}
+	}, [productId]);
 
-    if (!product) {
-        return <div>Chargement en cours...</div>; // Afficher un message de chargement tant que le produit n'est pas chargé
-    }
+	if (!product) {
+		return <div>Chargement en cours...</div>;
+	}
 
-    const { name, image, description, price } = product;
+	const { name, image, description, price } = product;
 
-	const quantityOptions = [1, 2, 3, 4, 5]; 
+	const quantityOptions = [1, 2, 3, 4, 5];
 
 	const handleLoginRedirect = () => {
 		localStorage.setItem('redirectPath', window.location.pathname);
-		Navigate('/login');
+		navigate('/login');
 	};
 
-	const handleAddToBasket = () => {
-		if (!AuthenticationService.isAuthenticated()) {
-			handleLoginRedirect();
-		}else{
-            BasketService.addProductToBasket(productId as string);
-        }
-	}
+	const handleAddToBasket = async () => {
+		const selectedQuantity = document.getElementById('quantity') as HTMLSelectElement | null;
+
+		if (selectedQuantity && productId) {
+			const quantity = parseInt(selectedQuantity.value);
+
+			if (AuthenticationService.isAuthenticated()) {
+				try {
+					await BasketService.addProductToBasket(parseInt(productId), quantity);
+					alert('Product added to basket');
+				} catch (error) {
+					console.error('Error adding product to basket', error);
+					alert('Failed to add product to basket');
+				}
+			} else {
+				handleLoginRedirect();
+			}
+		}
+	};
 
 	const handleGoToBuy = () => {
-		// Sinon je redirige l'utilisateur vers la page de connexion
 		if (!AuthenticationService.isAuthenticated()) {
 			handleLoginRedirect();
+		} else {
+			// Implement the buy logic here
+			alert('Proceed to buy');
 		}
+	};
 
-		// Si je suis connecté, je vais tout de suite l'acheter
-	}
-    return (
-        <div className='product-details'>
-            <img src={image} alt={name} className='product-image' />
-	            <div className='product-info'>
-                <h2>{name}</h2>
-                <p>{description}</p>
-                <p>Prix: {price} €</p>
-                {/* Sélecteur de quantité */}
-                <div className='quantity-selector'>
-                    <label htmlFor='quantity'>Quantité:</label>
-                    <select id='quantity' name='quantity'>
-                        {quantityOptions.map(option => (
-                            <option key={option} value={option}>{option}</option>
-                        ))}
-                    </select>
-                </div>
-                {/* Boutons d'action */}
-                <button className='btn' onClick={handleAddToBasket}>Ajouter au panier</button>
-                <button className='btn' onClick={handleGoToBuy}>Acheter maintenant</button>
-            </div>
-        </div>
-    );
+	return (
+		<div className='product-details'>
+			<img src={image} alt={name} className='product-image' />
+			<div className='product-info'>
+				<h2>{name}</h2>
+				<p>{description}</p>
+				<p>Prix: {price} €</p>
+				<div className='quantity-selector'>
+					<label htmlFor='quantity'>Quantité:</label>
+					<select id='quantity' name='quantity'>
+						{quantityOptions.map(option => (
+							<option key={option} value={option}>{option}</option>
+						))}
+					</select>
+				</div>
+				<button className='btn' onClick={handleAddToBasket}>Ajouter au panier</button>
+				<button className='btn' onClick={handleGoToBuy}>Acheter maintenant</button>
+			</div>
+		</div>
+	);
 };
 
 export default ProductDetails;

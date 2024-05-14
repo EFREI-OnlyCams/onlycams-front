@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import BasketService from '../services/basket-service';
+import { Product } from '../utils/product-type';
 import '../css/order.css';
 
 const Order = () => {
-  const [address, setAddress] = useState('123 Main Street, City, Country'); // Adresse de livraison par défaut
+  const [address, setAddress] = useState('123 Main Street, City, Country'); // Default delivery address
   const [cardNumber, setCardNumber] = useState('');
   const [orderPlaced, setOrderPlaced] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
-  const products = BasketService.getBasket();
+  useEffect(() => {
+    const fetchBasket = async () => {
+      try {
+        const basketProducts = await BasketService.getBasket();
+        //setProducts(basketProducts);
+      } catch (error) {
+        console.error('Error fetching basket products', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBasket();
+  }, []);
+
   const totalPrice = products.reduce((total, product) => total + product.price, 0);
 
   const handleAddressChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -20,17 +37,20 @@ const Order = () => {
   };
 
   const placeOrder = () => {
-	// vérification de la validité de la carte de crédit
-	if (cardNumber.length !== 16) {
-	  alert('Invalid card number');
-	  return;
-	}
-	
+    // Check if the card number is valid
+    if (cardNumber.length !== 16) {
+      alert('Invalid card number');
+      return;
+    }
     setOrderPlaced(true);
   };
 
   if (orderPlaced) {
     return <Navigate to="/command-status" />;
+  }
+
+  if (loading) {
+    return <div>Loading...</div>;
   }
 
   return (
