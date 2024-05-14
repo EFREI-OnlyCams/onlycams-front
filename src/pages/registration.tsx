@@ -45,7 +45,7 @@ const Registration: FunctionComponent = () => {
 
   return (
     <div className="container">
-      <h2>Registration</h2>
+      <h2 className="title">Registration</h2>
       <form onSubmit={handleSubmit} className="col s12">
         <div className="input-field">
           <label htmlFor="email">Email</label>

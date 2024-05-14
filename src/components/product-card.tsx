@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from '../utils/product-type';
+import '../css/product-card.css';
 
 type ProductCardProps = {
     product: Product;

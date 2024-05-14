@@ -48,7 +48,7 @@ const Cart: FunctionComponent = () => {
 
   return (
     <div className="container cart-page">
-      <h2>Shopping Cart</h2>
+      <h2 className='title'>Shopping Cart</h2>
 
       {basketProducts.length === 0 ? (
         <p>Your cart is empty</p>
