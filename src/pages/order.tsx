@@ -36,13 +36,15 @@ const Order = () => {
     setCardNumber(e.target.value);
   };
 
-  const placeOrder = () => {
-    if (cardNumber.length !== 16) {
-      alert('Invalid card number');
-      return;
+
+  const placeOrder = async () => {
+    try {
+      await BasketService.placeOrder();
+      setOrderPlaced(true);
+    } catch (error) {
+      console.error('Error clearing basket', error);
     }
-    setOrderPlaced(true);
-  };
+  };  
 
   if (orderPlaced) {
     return <Navigate to="/command-status" />;
@@ -101,7 +103,7 @@ const Order = () => {
           className="card-input"
         />
       </div>
-      <button className="waves-effect waves-light btn" onClick={placeOrder}>Place Order</button>
+      <Link to="/commandes" className="waves-effect waves-light btn" onClick={placeOrder}>Place Order</Link>
       <Link to="/home" className="waves-effect waves-light btn red">Cancel</Link>
     </div>
   );

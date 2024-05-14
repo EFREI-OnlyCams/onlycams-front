@@ -92,15 +92,8 @@ function App() {
 
 				<Route path="/about" element={<About />} /> {/* Add this line */}
 				<Route path="/" element={<Navigate to="/home" />} />
-				<Route
-					path="/commandes"
-					element={
-						isAuthenticated ? (
-							<CommandesPage userId={localStorage.getItem('userId') ?? ''} />
-						) : (
-							<Navigate to="/login" />
-						)
-					}
+				<Route path="/commandes" element={
+				 isAuthenticated ? <CommandesPage/> : <Navigate to="/login"/>}
 				/>
 				</Routes>
 			</main>

@@ -46,4 +46,31 @@ export default class BasketService {
 		});
 		if (!response.ok) throw new Error('Failed to clear basket');
 	  }
+
+	  static async placeOrder() {
+		const userId = localStorage.getItem('userId');
+		if (!userId) {
+		  throw new Error('User ID not found');
+		}
+		const response = await fetch(`http://localhost:8081/commandes/order/${userId}`, {
+		  method: 'POST',
+		});
+		if (!response.ok) throw new Error('Failed to place order');
+	  }
+
+	  static async getCommande(): Promise<string[]> {
+		const userId = localStorage.getItem('userId');
+		if (!userId) {
+			throw new Error("User ID not found");
+		}
+	
+		const response = await fetch(`http://localhost:8081/commandes/get/${userId}`);
+		if (!response.ok) {
+			throw new Error("Failed to fetch basket");
+		}
+	
+		const CommandeItems = await response.json();
+		return CommandeItems;
+	}
+
 }
