@@ -37,5 +37,13 @@ export default class BasketService {
 		const basketItems = await response.json();
 		console.log(basketItems);
 		return basketItems;
-	}	
+	}
+	
+	static async clearBasket() {
+		const userId = localStorage.getItem('userId');
+		const response = await fetch(`http://localhost:8081/basket/remove/${userId}`, {
+		  method: 'POST',
+		});
+		if (!response.ok) throw new Error('Failed to clear basket');
+	  }
 }

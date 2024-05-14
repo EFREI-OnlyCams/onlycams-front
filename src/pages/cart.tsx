@@ -26,8 +26,19 @@ const Cart: FunctionComponent = () => {
       }
     };
 
+    
+
     fetchBasket();
   }, []);
+
+  const handleClearBasket = async () => {
+    try {
+      await BasketService.clearBasket();
+      setBasketProducts([]);
+    } catch (error) {
+      console.error('Error clearing basket', error);
+    }
+  };  
 
   const totalPrice = basketProducts.reduce((total, product) => total + product.price, 0);
 
@@ -66,10 +77,14 @@ const Cart: FunctionComponent = () => {
       {basketProducts.length > 0 && (
         <div className="total-section">
           <h4>Total Price: {totalPrice} €</h4>
+          <button onClick={handleClearBasket} className="waves-effect waves-light btn red">
+            Clear Cart
+          </button>
           <Link to="/order" className="waves-effect waves-light btn">
             Proceed to the order
           </Link>
         </div>
+        
       )}
     </div>
   );
