@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import BasketService from '../services/basket-service';
+import productService from '../services/product-service';
 import { Product } from '../utils/product-type';
 import '../css/order.css';
 
 const Order = () => {
-  const [address, setAddress] = useState('123 Main Street, City, Country'); // Default delivery address
+  const [address, setAddress] = useState('123 Main Street, City, Country');
   const [cardNumber, setCardNumber] = useState('');
   const [orderPlaced, setOrderPlaced] = useState(false);
-  const [products, setProducts] = useState<Product[]>([]);
+  const [basketProducts, setBasketProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchBasket = async () => {
       try {
-        const basketProducts = await BasketService.getBasket();
-        //setProducts(basketProducts);
+        const productIds: string[] = await BasketService.getBasket();
+        const products = await productService.getProductsByIds(productIds);
+        setBasketProducts(products);
       } catch (error) {
         console.error('Error fetching basket products', error);
       } finally {
@@ -26,18 +28,15 @@ const Order = () => {
     fetchBasket();
   }, []);
 
-  const totalPrice = products.reduce((total, product) => total + product.price, 0);
-
-  const handleAddressChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(e.target.value);
   };
 
-  const handleCardNumberChange = (e: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCardNumber(e.target.value);
   };
 
   const placeOrder = () => {
-    // Check if the card number is valid
     if (cardNumber.length !== 16) {
       alert('Invalid card number');
       return;
@@ -49,12 +48,14 @@ const Order = () => {
     return <Navigate to="/command-status" />;
   }
 
+  const totalPrice = basketProducts.reduce((total, product) => total + product.price, 0);
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="container card-page">
+    <div className="container order-page">
       <h2>Order Summary</h2>
       <div className="order-details">
         <h4>Delivery Address</h4>
@@ -67,16 +68,24 @@ const Order = () => {
       </div>
       <div className="order-details">
         <h4>Products</h4>
-        {products.map((product) => (
-          <div key={product.id} className="product-item">
-            <img src={product.image} alt={product.name} className="product-image" />
-            <div className="product-info">
-              <p><strong>{product.name}</strong></p>
-              <p>Category: {product.category}</p>
-              <p>Price: ${product.price}</p>
+        <div className="row">
+          {basketProducts.map((product: Product) => (
+            <div key={product.id} className="col s12 m6">
+              <div className="card horizontal">
+                <div className="card-image">
+                  <img src={product.image} alt={product.name} />
+                </div>
+                <div className="card-stacked">
+                  <div className="card-content">
+                    <h5>{product.name}</h5>
+                    <p>Category: {product.category}</p>
+                    <p>Price: ${product.price}</p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="order-details">
         <h4>Total Price</h4>
