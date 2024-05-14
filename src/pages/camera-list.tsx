@@ -19,15 +19,8 @@ const CameraList : FunctionComponent = () => {
 
 	return (
 		<div className="main-content">
-			<div className="title">
-				
-				<h1>Cameras</h1>
-				<div className = "intro-text">
-				<p>{description}</p>
-				</div>
-				
-			</div>
-
+			<h1 className="title">Cameras</h1>
+			<p className="description">{description}</p>
 			<div className="row">
 			{cameras.map((product) => (
 				<div className="col s12 m6 l3" key={product.id}>

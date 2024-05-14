@@ -34,7 +34,7 @@ const AccountInformation: FunctionComponent = () => {
 
   return (
     <div className="container">
-      <h2>Account Information</h2>
+      <h2 className='title'>Account Information</h2>
       <div className="col s12">
         <div className="input-field">
           <label>Email</label>

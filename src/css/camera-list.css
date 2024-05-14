@@ -1,17 +1,12 @@
 .main-content {
 	align-items: center;
 	text-align: center;
-	
 	margin-left: 10%;
 	margin-right: 10%;
 
 	.title {
-		
-		font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-		p {
-			font-size: small;
-		}
+		color: white;
+		text-shadow: 2px 2px 4px #000000;
 	}
 
 	.card {
@@ -40,13 +35,11 @@
 
 }
 
-.intro-text{
+.description{
 	margin-top : 20px;
 	text-align: center;
-	color : black;
-	font-weight: bold;
-	font-family: Garamond;
-	background-color: rgba(55, 97, 131, 0.6);
+	color : rgb(21, 21, 21);
+	background-color: rgba(155, 208, 255, 0.6);
 	padding: 15px; /* Adjust padding as needed */
     border-radius: 20px; /* Optional: adds rounded corners to the box */
 }

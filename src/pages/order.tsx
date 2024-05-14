@@ -47,7 +47,7 @@ const Order = () => {
   };  
 
   if (orderPlaced) {
-    return <Navigate to="/command-status" />;
+    return <Navigate to="/order-status" />;
   }
 
   const totalPrice = basketProducts.reduce((total, product) => total + product.price, 0);

@@ -1,6 +1,7 @@
 .slider-images {
 	margin-top : 40px;
-    height: 500px; /* Hauteur du conteneur (ajustez selon vos besoins) */
+	max-width: 60%;
+    height:auto; /* Hauteur du conteneur (ajustez selon vos besoins) */
     overflow: hidden; /* Masquer le contenu débordant */
     position: relative; /* Position relative pour positionner l'image de manière absolue */
 	padding-left: 5%;
@@ -13,6 +14,12 @@
     	object-position: center; /* Positionne l'image centrée dans le conteneur */
 	}
 
+}
+
+.sub-title{
+	text-align: center;
+	color : white;
+	text-shadow: 2px 2px 4px #000000;
 }
 
 .products-container { 
@@ -38,7 +45,7 @@
 			object-fit: cover; /* Zoom et coupe l'image pour remplir le conteneur */
 			object-position: center; /* Positionne l'image centrée dans le conteneur */
 		}
-		
+
 		h4 {
 			font-size: 20px;
 			margin-top: 10px; /* Espacement supérieur pour le nom du produit */

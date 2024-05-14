@@ -16,14 +16,12 @@ const AppareilPhotoList : FunctionComponent = () => {
 
 	return (
 		<div className="main-content">
-			<div className="title">
                 <div className = "intro-">
-				<h1>Appareils photos</h1>
+				<h1 className='title'>Appareils photos</h1>
                 </div>
-                <div className = "intro-text">
+                <div className = "description">
 				<p>{description}</p>
                 </div> 
-			</div>
 
 			<div className="row">
             {appareilsPhoto.map((product) => (
