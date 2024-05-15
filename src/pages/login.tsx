@@ -1,6 +1,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AuthenticationService from '../services/authentication-service';
+import '../css/login.css';
 
 type Field = {
   value?: any,
