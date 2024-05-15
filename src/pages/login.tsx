@@ -98,7 +98,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         AuthenticationService.login(userId,form.username.value, form.password.value).then(isAuthenticated => {
           console.log(form.username.value, form.password.value, isAuthenticated);
               if(!isAuthenticated) {
-                setMessage('🔐 Email ou mot de passe incorrect.');
+                setMessage('🔐 Email ou mot de passe incorrect / Compte pas encore valide par admin');
                 return;
               }
               localStorage.setItem('userId', userId.toString()); // Stocker l'ID de l'utilisateur dans le localStorage

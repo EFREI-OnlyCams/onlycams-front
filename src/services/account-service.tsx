@@ -4,10 +4,12 @@ import { Account } from "../utils/account-type";
 const ACCOUNT_API_BASE_URL = 'http://localhost:8081/api'; // Replace with your actual backend URL
 
 export default class AccountService {
-	static account: Account = {id:'', email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
+	static account: Account = {utilisateurId: '', email: '', motDePasse: '', nom: '', prenom: '', numeroTel: "", note: ''};
+
+	static getId = (): string => AccountService.account.utilisateurId;
 
 	static setId = (id: string): void => {
-		AccountService.account.id=id;
+		AccountService.account.utilisateurId =id;
 	}
 	static setEmail = (email: string): void => {
 		AccountService.account.email = email;
@@ -42,7 +44,7 @@ export default class AccountService {
 	}
 
 	static clearAccount(): void {
-		this.account = {id: '', email: '', motDePasse: '' };
+		this.account = {utilisateurId: '', email: '', motDePasse: '' };
 	}
 
 
