@@ -115,6 +115,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
 
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
+      <div className = "login">
       <div className="row">
         <div className="col s12 m8 offset-m2">
           <div className="card hoverable">
@@ -154,6 +155,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </form>
   );
