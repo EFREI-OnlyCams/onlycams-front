@@ -71,16 +71,7 @@ const ProductDetails: FunctionComponent = () => {
 				<h2>{name}</h2>
 				<p>{description}</p>
 				<p>Prix: {price} €</p>
-				<div className='quantity-selector'>
-					<label htmlFor='quantity'>Quantité:</label>
-					<select id='quantity' name='quantity'>
-						{quantityOptions.map(option => (
-							<option key={option} value={option}>{option}</option>
-						))}
-					</select>
-				</div>
 				<button className='btn' onClick={handleAddToBasket}>Ajouter au panier</button>
-				<button className='btn' onClick={handleGoToBuy}>Acheter maintenant</button>
 			</div>
 		</div>
 	);
